@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Contacto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            color: #333;
+        }
+        .msg-success {
+            color: green;
+            font-weight: bold;
+        }
+        .msg-error {
+            color: red;
+            font-weight: bold;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea {
+            width: 300px;
+            padding: 5px;
+            margin-top: 3px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Formulario de Contacto</h1>
+
+    <!-- BLOQUE DE MENSAJES FLASK -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          {% if category == 'success' %}
+            <p class="msg-success">{{ message }}</p>
+          {% else %}
+            <p class="msg-error">{{ message }}</p>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- FORMULARIO -->
+    <form method="POST" action="/">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required>
+
+        <label>Apellido:</label>
+        <input type="text" name="apellido" required>
+
+        <label>Dirección:</label>
+        <input type="text" name="direccion">
+
+        <label>Teléfono:</label>
+        <input type="text" name="telefono">
+
+        <label>Correo:</label>
+        <input type="email" name="correo" required>
+
+        <label>Mensaje:</label>
+        <textarea name="mensaje"></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+</body>
+</html>
