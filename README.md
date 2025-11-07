@@ -4,6 +4,6 @@ busca los archivos HTML directamente dentro de la carpeta templates ubicada al m
 
 
 
-
+ya quedo funcionando , valida y continua con la gua del taller 
 
 <img width="553" height="556" alt="image" src="https://github.com/user-attachments/assets/81faee73-311a-4abf-a05f-28276cface55" />
